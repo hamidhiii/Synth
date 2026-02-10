@@ -1,0 +1,13 @@
+[Unit]
+Description=gunicorn daemon
+Requires=gunicorn.socket
+After=network.target
+
+[Service]
+User=root
+Group=www-data
+WorkingDirectory=/home/MiniGroup8-backend
+ExecStart=/home/MiniGroup8-backend/venv/bin/gunicorn --workers 3 --bind unix:/home/MiniGroup8-backend/deploy/gunicorn.sock config.wsgi:application
+
+[Install]
+WantedBy=multi-user.target

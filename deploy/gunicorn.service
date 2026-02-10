@@ -6,8 +6,8 @@ After=network.target
 [Service]
 User=root
 Group=www-data
-WorkingDirectory=/home/MiniGroup8-backend
-ExecStart=/home/MiniGroup8-backend/venv/bin/gunicorn --workers 3 --bind unix:/home/MiniGroup8-backend/deploy/gunicorn.sock config.wsgi:application
+WorkingDirectory=/home/NEURYNTH_ERP
+ExecStart=/home/NEURYNTH_ERP/venv/bin/gunicorn --workers 1 --bind unix:/home/NEURYNTH_ERP/deploy/gunicorn.sock core.wsgi:application
 
 [Install]
 WantedBy=multi-user.target

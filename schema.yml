@@ -1,0 +1,925 @@
+openapi: 3.0.3
+info:
+  title: NEURYNTH ERP API
+  version: 1.0.0
+  description: Professional ERP API for NEURYNTH System
+paths:
+  /api/v1/crm/leads/:
+    get:
+      operationId: v1_crm_leads_list
+      description: API endpoint that allows leads/opportunities to be viewed or edited.
+      tags:
+      - v1
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Lead'
+          description: ''
+    post:
+      operationId: v1_crm_leads_create
+      description: API endpoint that allows leads/opportunities to be viewed or edited.
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Lead'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Lead'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Lead'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lead'
+          description: ''
+  /api/v1/crm/leads/{id}/:
+    get:
+      operationId: v1_crm_leads_retrieve
+      description: API endpoint that allows leads/opportunities to be viewed or edited.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this lead.
+        required: true
+      tags:
+      - v1
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lead'
+          description: ''
+    put:
+      operationId: v1_crm_leads_update
+      description: API endpoint that allows leads/opportunities to be viewed or edited.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this lead.
+        required: true
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Lead'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Lead'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Lead'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lead'
+          description: ''
+    patch:
+      operationId: v1_crm_leads_partial_update
+      description: API endpoint that allows leads/opportunities to be viewed or edited.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this lead.
+        required: true
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedLead'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedLead'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedLead'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lead'
+          description: ''
+    delete:
+      operationId: v1_crm_leads_destroy
+      description: API endpoint that allows leads/opportunities to be viewed or edited.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this lead.
+        required: true
+      tags:
+      - v1
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '204':
+          description: No response body
+  /api/v1/crm/tags/:
+    get:
+      operationId: v1_crm_tags_list
+      tags:
+      - v1
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Tag'
+          description: ''
+    post:
+      operationId: v1_crm_tags_create
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Tag'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Tag'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Tag'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tag'
+          description: ''
+  /api/v1/crm/tags/{id}/:
+    get:
+      operationId: v1_crm_tags_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this tag.
+        required: true
+      tags:
+      - v1
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tag'
+          description: ''
+    put:
+      operationId: v1_crm_tags_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this tag.
+        required: true
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Tag'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Tag'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Tag'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tag'
+          description: ''
+    patch:
+      operationId: v1_crm_tags_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this tag.
+        required: true
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedTag'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedTag'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedTag'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tag'
+          description: ''
+    delete:
+      operationId: v1_crm_tags_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this tag.
+        required: true
+      tags:
+      - v1
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '204':
+          description: No response body
+  /api/v1/crm/teams/:
+    get:
+      operationId: v1_crm_teams_list
+      tags:
+      - v1
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Team'
+          description: ''
+    post:
+      operationId: v1_crm_teams_create
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Team'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Team'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Team'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team'
+          description: ''
+  /api/v1/crm/teams/{id}/:
+    get:
+      operationId: v1_crm_teams_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this team.
+        required: true
+      tags:
+      - v1
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team'
+          description: ''
+    put:
+      operationId: v1_crm_teams_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this team.
+        required: true
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Team'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Team'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Team'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team'
+          description: ''
+    patch:
+      operationId: v1_crm_teams_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this team.
+        required: true
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedTeam'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedTeam'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedTeam'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team'
+          description: ''
+    delete:
+      operationId: v1_crm_teams_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this team.
+        required: true
+      tags:
+      - v1
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '204':
+          description: No response body
+components:
+  schemas:
+    Lead:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          nullable: true
+          maxLength: 255
+        active:
+          type: boolean
+        date_action_last:
+          type: string
+          format: date-time
+          nullable: true
+        email_from:
+          type: string
+          nullable: true
+          maxLength: 255
+        website:
+          type: string
+          nullable: true
+          maxLength: 255
+        team_id:
+          type: string
+          nullable: true
+          description: 'Odoo Many2one: crm.team'
+        kanban_state:
+          type: string
+          nullable: true
+          maxLength: 50
+        email_cc:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        create_date:
+          type: string
+          format: date-time
+          nullable: true
+        write_date:
+          type: string
+          format: date-time
+          nullable: true
+        tag_ids:
+          type: string
+          nullable: true
+          description: Odoo relationship field
+        contact_name:
+          type: string
+          nullable: true
+          maxLength: 255
+        partner_name:
+          type: string
+          nullable: true
+          maxLength: 255
+        type:
+          type: string
+          nullable: true
+          maxLength: 50
+        priority:
+          type: string
+          nullable: true
+          maxLength: 50
+        date_closed:
+          type: string
+          format: date-time
+          nullable: true
+        user_id:
+          type: string
+          nullable: true
+          description: 'Odoo Many2one: res.users'
+        referred:
+          type: string
+          nullable: true
+          maxLength: 255
+        date_open:
+          type: string
+          format: date-time
+          nullable: true
+        day_open:
+          type: number
+          format: double
+        day_close:
+          type: number
+          format: double
+        date_last_stage_update:
+          type: string
+          format: date-time
+          nullable: true
+        date_conversion:
+          type: string
+          format: date-time
+          nullable: true
+        message_bounce:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+        probability:
+          type: number
+          format: double
+        planned_revenue:
+          type: number
+          format: double
+        date_deadline:
+          type: string
+          format: date
+          nullable: true
+        color:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+        partner_address_name:
+          type: string
+          nullable: true
+          maxLength: 255
+        partner_address_email:
+          type: string
+          nullable: true
+          maxLength: 255
+        company_currency:
+          type: string
+          nullable: true
+          description: 'Odoo Many2one: Currency'
+        user_email:
+          type: string
+          nullable: true
+          maxLength: 255
+        user_login:
+          type: string
+          nullable: true
+          maxLength: 255
+        street:
+          type: string
+          nullable: true
+          maxLength: 255
+        street2:
+          type: string
+          nullable: true
+          maxLength: 255
+        zip:
+          type: string
+          nullable: true
+          maxLength: 255
+        city:
+          type: string
+          nullable: true
+          maxLength: 255
+        state_id:
+          type: string
+          nullable: true
+          description: 'Odoo Many2one: res.country.state'
+        country_id:
+          type: string
+          nullable: true
+          description: 'Odoo Many2one: res.country'
+        phone:
+          type: string
+          nullable: true
+          maxLength: 255
+        mobile:
+          type: string
+          nullable: true
+          maxLength: 255
+        function:
+          type: string
+          nullable: true
+          maxLength: 255
+        title:
+          type: string
+          nullable: true
+          description: 'Odoo Many2one: res.partner.title'
+        company_id:
+          type: string
+          nullable: true
+          description: 'Odoo Many2one: res.company'
+        meeting_count:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+        lost_reason:
+          type: string
+          nullable: true
+          description: 'Odoo Many2one: crm.lost.reason'
+      required:
+      - id
+    PatchedLead:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          nullable: true
+          maxLength: 255
+        active:
+          type: boolean
+        date_action_last:
+          type: string
+          format: date-time
+          nullable: true
+        email_from:
+          type: string
+          nullable: true
+          maxLength: 255
+        website:
+          type: string
+          nullable: true
+          maxLength: 255
+        team_id:
+          type: string
+          nullable: true
+          description: 'Odoo Many2one: crm.team'
+        kanban_state:
+          type: string
+          nullable: true
+          maxLength: 50
+        email_cc:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        create_date:
+          type: string
+          format: date-time
+          nullable: true
+        write_date:
+          type: string
+          format: date-time
+          nullable: true
+        tag_ids:
+          type: string
+          nullable: true
+          description: Odoo relationship field
+        contact_name:
+          type: string
+          nullable: true
+          maxLength: 255
+        partner_name:
+          type: string
+          nullable: true
+          maxLength: 255
+        type:
+          type: string
+          nullable: true
+          maxLength: 50
+        priority:
+          type: string
+          nullable: true
+          maxLength: 50
+        date_closed:
+          type: string
+          format: date-time
+          nullable: true
+        user_id:
+          type: string
+          nullable: true
+          description: 'Odoo Many2one: res.users'
+        referred:
+          type: string
+          nullable: true
+          maxLength: 255
+        date_open:
+          type: string
+          format: date-time
+          nullable: true
+        day_open:
+          type: number
+          format: double
+        day_close:
+          type: number
+          format: double
+        date_last_stage_update:
+          type: string
+          format: date-time
+          nullable: true
+        date_conversion:
+          type: string
+          format: date-time
+          nullable: true
+        message_bounce:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+        probability:
+          type: number
+          format: double
+        planned_revenue:
+          type: number
+          format: double
+        date_deadline:
+          type: string
+          format: date
+          nullable: true
+        color:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+        partner_address_name:
+          type: string
+          nullable: true
+          maxLength: 255
+        partner_address_email:
+          type: string
+          nullable: true
+          maxLength: 255
+        company_currency:
+          type: string
+          nullable: true
+          description: 'Odoo Many2one: Currency'
+        user_email:
+          type: string
+          nullable: true
+          maxLength: 255
+        user_login:
+          type: string
+          nullable: true
+          maxLength: 255
+        street:
+          type: string
+          nullable: true
+          maxLength: 255
+        street2:
+          type: string
+          nullable: true
+          maxLength: 255
+        zip:
+          type: string
+          nullable: true
+          maxLength: 255
+        city:
+          type: string
+          nullable: true
+          maxLength: 255
+        state_id:
+          type: string
+          nullable: true
+          description: 'Odoo Many2one: res.country.state'
+        country_id:
+          type: string
+          nullable: true
+          description: 'Odoo Many2one: res.country'
+        phone:
+          type: string
+          nullable: true
+          maxLength: 255
+        mobile:
+          type: string
+          nullable: true
+          maxLength: 255
+        function:
+          type: string
+          nullable: true
+          maxLength: 255
+        title:
+          type: string
+          nullable: true
+          description: 'Odoo Many2one: res.partner.title'
+        company_id:
+          type: string
+          nullable: true
+          description: 'Odoo Many2one: res.company'
+        meeting_count:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+        lost_reason:
+          type: string
+          nullable: true
+          description: 'Odoo Many2one: crm.lost.reason'
+    PatchedTag:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          nullable: true
+          maxLength: 255
+        color:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+    PatchedTeam:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        use_leads:
+          type: boolean
+        use_opportunities:
+          type: boolean
+        alias_id:
+          type: string
+          nullable: true
+          description: 'Odoo Many2one: mail.alias'
+        dashboard_graph_model:
+          type: string
+          nullable: true
+          maxLength: 50
+    Tag:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          nullable: true
+          maxLength: 255
+        color:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+      required:
+      - id
+    Team:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        use_leads:
+          type: boolean
+        use_opportunities:
+          type: boolean
+        alias_id:
+          type: string
+          nullable: true
+          description: 'Odoo Many2one: mail.alias'
+        dashboard_graph_model:
+          type: string
+          nullable: true
+          maxLength: 50
+      required:
+      - id
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid

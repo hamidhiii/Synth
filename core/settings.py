@@ -36,7 +36,10 @@ SECRET_KEY = 'django-insecure-4!a)7y-@p^_4*=gvbnxu9o-c6^td&k-efpmg2&=z%ucn4jcb@p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['think.thmy.uz', 'localhost', '127.0.0.1']
+
+# CSRF Trusted Origins
+CSRF_TRUSTED_ORIGINS = ['https://think.thmy.uz']
 
 
 # Application definition
